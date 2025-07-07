@@ -1,0 +1,25 @@
+[package]
+name = "escrow"
+version = "0.1.0"
+description = "Created with Anchor"
+edition = "2021"
+
+[lib]
+crate-type = ["cdylib", "lib"]
+name = "escrow"
+
+[features]
+anchor-debug = []
+cpi = ["no-entrypoint"]
+custom-heap = []
+custom-panic = []
+default = []
+idl-build = ["anchor-lang/idl-build", "anchor-spl/idl-build"]
+no-entrypoint = []
+no-idl = []
+no-log-ix-name = []
+solana = []
+
+[dependencies]
+anchor-lang = { version = "0.31.1", features = ["init-if-needed"]}
+anchor-spl = "0.31.1"
