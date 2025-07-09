@@ -32,7 +32,7 @@ pub struct Make<'info> {
         mut,
         associated_token::mint = mint_a,
         associated_token::authority = maker,
-        associated_token::token_program = associated_token_program,
+        associated_token::token_program = token_program,
     )]
     pub maker_ata_a: InterfaceAccount<'info, TokenAccount>,
 
@@ -82,8 +82,6 @@ impl<'info> Make<'info> {
 
         let cpi_ctx = CpiContext::new(self.token_program.to_account_info(), transfer_accounts);
 
-        transfer_checked(cpi_ctx, deposit, self.mint_a.decimals)?;
-
-        Ok(())
+        transfer_checked(cpi_ctx, deposit, self.mint_a.decimals)
     }
 }
